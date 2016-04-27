@@ -1,7 +1,10 @@
 #! /usr/bin/env python
 
 import youtube_dl
+from youtube_dl.utils import (DateRange)
 import json
+
+date_from = '20160422'
 
 
 ydl_opts = {
@@ -18,16 +21,14 @@ ydl_opts = {
     # Do not print useless output
     # 'quiet': True,
     # Download videos since
-    'dateafter': 'now-10days',
+    'daterange': DateRange(date_from, '99991231'),
     # Do not extract videos from playlists
-    'flatplaylist': True
+    # 'extractflat': True
+    'simulate': True
     }
 
 ydl = youtube_dl.YoutubeDL(ydl_opts)
-result = ydl.extract_info(
-    # 'https://www.youtube.com/watch?v=nsIaibmkAbI',
-    'https://www.youtube.com/channel/UCohPRL-xLiPQqPt-hYNU44Q',
-    download=False)
+result = ydl.extract_info('https://www.youtube.com/channel/UCohPRL-xLiPQqPt-hYNU44Q')
 
 
 # Can be a playlist or a list of videos
