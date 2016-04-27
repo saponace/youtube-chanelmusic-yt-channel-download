@@ -16,7 +16,7 @@ ydl_opts = {
         'preferredquality': '256',
     }],
     # Do not print useless output
-    'quiet': True,
+    # 'quiet': True,
     # Download videos since
     'dateafter': 'now-10days',
     # Do not extract videos from playlists
