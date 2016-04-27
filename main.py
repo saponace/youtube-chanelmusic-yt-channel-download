@@ -11,17 +11,18 @@ ydl_opts = {
         'preferredcodec': 'mp3',
         'preferredquality': '256',
     }],
-    # 'quiet': True,
-    # 'restrictfilenames': True,
+    'quiet': True,
+    'dateafter': 'now-10days',
+    'flatplaylist': True
     }
 
 ydl = youtube_dl.YoutubeDL(ydl_opts)
 result = ydl.extract_info(
-    'https://www.youtube.com/watch?v=nsIaibmkAbI',
+     'https://www.youtube.com/watch?v=nsIaibmkAbI',
     download=False)
 
-json_result = json.loads(json.dumps(result))
 
+json_result = json.loads(json.dumps(result))
 # Can be a playlist or a list of videos
 if 'entries' in result:
     print("Mock: create a playlist")
