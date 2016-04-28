@@ -1,7 +1,12 @@
 #! /usr/bin/env python
 
-import youtube_dl
+import sys
 import json
+
+try:
+    import youtube_dl
+except ImportError:
+    sys.exit("You need youtube-dl to run this script install it first with \"pip install youtube-dl\" and try again.")
 
 date_from = '2015042'
 # channel_url = 'https://www.youtube.com/channel/UCohPRL-xLiPQqPt-hYNU44Q'
