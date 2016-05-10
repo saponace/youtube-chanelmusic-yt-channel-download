@@ -1,0 +1,114 @@
+{
+   "projectName":"Savant",
+   "baseLocation":".",
+   "upstreamURLs": [
+      "https://www.youtube.com/channel/UCohPRL-xLiPQqPt-hYNU44Q",
+      "https://www.youtube.com/user/SavantFans"
+   ],
+   "directories": [
+      {
+         "name": "Vinter in Hollywood",
+         "pattern": "Vinter in Hollywood",
+         "children": [
+            {
+               "name": "Outbreak",
+               "pattern": "Outbreak"
+            }
+         ]
+      },
+     {
+         "name": "Vinter in Vegas",
+         "pattern": "Vinter in Vegas",
+         "children": [
+            {
+               "name": "Mamachine",
+               "pattern": "Mamachine"
+            }
+         ]
+      },
+      {
+         "name": "Savant",
+         "pattern": "Savant",
+         "children": [
+            {
+               "name": "Thrillseeker",
+               "pattern": "Thrillseeker"
+            },
+            {
+               "name": "Ninur",
+               "pattern": "Ninur"
+            },
+            {
+               "name": "Vario",
+               "pattern": "Vario"
+            },
+            {
+               "name": "Overworld",
+               "pattern": "Overworld"
+            },
+            {
+               "name": "ISM",
+               "pattern": "ISM"
+            },
+            {
+               "name": "Alchemist",
+               "pattern": "Alchemist"
+            },
+            {
+               "name": "The Ritalin Project",
+               "pattern": "The Ritalin Project"
+            },
+            {
+               "name": "Mindmelt",
+               "pattern": "Mindmelt"
+            },
+            {
+               "name": "Overkill",
+               "pattern": "Overkill"
+            },
+            {
+               "name": "Cult",
+               "pattern": "Cult"
+            },
+            {
+               "name": "Orakel",
+               "pattern": "Oralel"
+            },
+            {
+               "name": "Heart",
+               "pattern": "Heart"
+            },
+            {
+               "name": "Four Days",
+               "pattern": "Four Days"
+            },
+            {
+               "name": "Thank You",
+               "pattern": "Thank You"
+            },
+            {
+               "name": "Protos",
+               "pattern": "Protos"
+            },
+            {
+               "name": "ZION",
+               "pattern": "ZION"
+            },
+            {
+               "name": "Invasion",
+               "pattern": "Invasion"
+            }
+         ]
+      },
+      {
+         "name": "Blanco",
+         "pattern": "Blanco",
+         "children": [
+            {
+               "name": "Bajo",
+               "pattern": "Bajo"
+            }
+         ]
+      }
+   ]
+}
