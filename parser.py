@@ -47,9 +47,9 @@ class Parser(object):
         """
         Return a dictionary containing the directories that will hold the
         tracks
-        :param subdirs_list:  The list of directories to store tracks.
-        :param basedir:  The base directory in which the file tree structure
-        :param project_name:  The name of the project. Will be used as root
+        :param subdirs_list: The list of directories to store tracks.
+        :param basedir: The base directory in which the file tree structure
+        :param project_name: The name of the project. Will be used as root
         directory
         :return: A dictionary where:
             Keys: Regex patterns
@@ -64,11 +64,11 @@ class Parser(object):
     def parse(self):
         """
         Parse the config file
-        :return:  Dictionary containing the data that will be outputed where:
+        :return: Dictionary containing the data that will be outputed where:
             project_name -> Name of the project
             upstream_URLs -> List of upstream URL from which to download the
             tracks
-            locations:-> List of directories to store downloaded tracks
+            locations -> List of directories to store downloaded tracks
         """
         ret_val = {}
 
