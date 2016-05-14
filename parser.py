@@ -3,19 +3,23 @@ from duplicate_regex_error import DuplicateRegexError
 
 
 class Parser(object):
+    """
+    Parse a config file
+    """
 
     def __init__(self, config_file_path):
+        """
+        Constructor
+        :param config_file_path: The path to the config file
+        """
         self.config_file_path = config_file_path
 
     def parse_directories_aux(self, node, parent_dir):
         """
         Recursively parse a tree of download locations
-
-        Parameters:
-            current_dir --- Current directory of the node
-            node --- Node of the tree
-
-        Return value: Dictionary where
+        :param node: Node of the tree
+        :param parent_dir: Current directory of the node
+        :return: A dictionary where:
             Keys: Regex pattern
             Values: Path of the directory to store tracks that match the regex
         """
@@ -29,7 +33,7 @@ class Parser(object):
                 subcall_ret_val = self.parse_directories_aux(child_node,
                                                              current_dir)
                 for pat in subcall_ret_val:
-                    if (pat in download_locations):
+                    if pat in download_locations:
                         raise DuplicateRegexError("Duplicate regex - '" +
                                                   pat + "' matches paths " +
                                                   download_locations[pat] +
@@ -41,34 +45,28 @@ class Parser(object):
         """
         Return a dictionary containing the directories that will hold the
         tracks
-
-        Parameters:
-            subdirs_list -- The list of directories to store tracks.
-            basedir -- The base directory in which the file tree structure
-            should be created.
-            project_name -- The name of the project. Will be used as root
-            directory
-
-        Return value: Dictionary where
+        :param subdirs_list:  The list of directories to store tracks.
+        :param basedir:  The base directory in which the file tree structure
+        :param project_name:  The name of the project. Will be used as root
+        directory
+        :return: A dictionary where:
             Keys: Regex patterns
             Values: The relative location of the directory from the
             base_location
         """
-        head = {}
-        head['name'] = project_name
-        head['pattern'] = "*"
-        head['children'] = subdirs_list
+        head = dict(name=project_name,
+                    pattern="*",
+                    children=subdirs_list)
         return self.parse_directories_aux(head, basedir)
 
     def parse(self):
         """
-        Parse a config file
-
-        Return value: Dictionary containing the data that will be outputed
-            Key project_name: Name of the project
-            Key upstream_URLs: List of upstream URL from which to download the
+        Parse the config file
+        :return:  Dictionary containing the data that will be outputed where:
+            project_name -> Name of the project
+            upstream_URLs -> List of upstream URL from which to download the
             tracks
-            Key locations: List of directories to store downloaded tracks
+            locations:-> List of directories to store downloaded tracks
         """
         ret_val = {}
 
