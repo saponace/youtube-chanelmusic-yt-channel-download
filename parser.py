@@ -14,7 +14,8 @@ class Parser(object):
         """
         self.config_file_path = config_file_path
 
-    def parse_directories_aux(self, node, parent_dir):
+    @staticmethod
+    def parse_directories_aux(node, parent_dir):
         """
         Recursively parse a tree of download locations
         :param node: Node of the tree
@@ -30,8 +31,8 @@ class Parser(object):
 
         if 'children' in node:
             for child_node in node['children']:
-                subcall_ret_val = self.parse_directories_aux(child_node,
-                                                             current_dir)
+                subcall_ret_val = Parser.parse_directories_aux(child_node,
+                                                               current_dir)
                 for pat in subcall_ret_val:
                     if pat in download_locations:
                         raise DuplicateRegexError("Duplicate regex - '" +
@@ -41,7 +42,8 @@ class Parser(object):
                 download_locations.update(subcall_ret_val)
         return download_locations
 
-    def parse_directories(self, subdirs_list, basedir, project_name):
+    @staticmethod
+    def parse_directories(subdirs_list, basedir, project_name):
         """
         Return a dictionary containing the directories that will hold the
         tracks
@@ -57,7 +59,7 @@ class Parser(object):
         head = dict(name=project_name,
                     pattern="*",
                     children=subdirs_list)
-        return self.parse_directories_aux(head, basedir)
+        return Parser.parse_directories_aux(head, basedir)
 
     def parse(self):
         """
@@ -80,7 +82,7 @@ class Parser(object):
         ret_val['upstream_urls'] = upstream_urls
 
         base_location = config['baseLocation']
-        ret_val['download_locations'] = self.parse_directories(
+        ret_val['download_locations'] = Parser.parse_directories(
             config['directories'], base_location, project_name)
 
         return ret_val
