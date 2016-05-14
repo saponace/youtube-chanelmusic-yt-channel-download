@@ -68,7 +68,7 @@ class Parser(object):
             project_name -> Name of the project
             upstream_URLs -> List of upstream URL from which to download the
             tracks
-            locations -> List of directories to store downloaded tracks
+            download_locations -> List of directories to store downloaded tracks
         """
         ret_val = {}
 
