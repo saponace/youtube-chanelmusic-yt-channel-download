@@ -57,7 +57,7 @@ class Parser(object):
             base_location
         """
         head = dict(name=project_name,
-                    pattern="*",
+                    pattern=".",
                     children=subdirs_list)
         return Parser.parse_directories_aux(head, basedir)
 
