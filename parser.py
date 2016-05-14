@@ -1,5 +1,5 @@
 import json
-from duplicateRegexError import DuplicateRegexError
+from duplicate_regex_error import DuplicateRegexError
 
 
 class Parser(object):
