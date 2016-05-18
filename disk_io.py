@@ -38,8 +38,8 @@ class DiskIO(object):
         """
         matching_dirs = []
         for regex, path in self.config['download_locations'].items():
-            p = re.compile(u"" + re.escape(regex))
-            if re.match(p, filename):
+            p = re.compile(regex)
+            if p.search(filename):
                 matching_dirs.append(path)
         if len(matching_dirs) == 0:
             raise FileMatchesNoRegexError("Filename " + filename + " does not match " +
