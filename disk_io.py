@@ -70,9 +70,12 @@ class DiskIO(object):
         """
         matching_dirs = self.get_matching_dirs(filename)
         if len(matching_dirs) == 0:
-            raise FileMatchesNoRegexError("Filename " + filename + " does " +
-                                          "not match any regex in the config " +
-                                          "file.")
+            raise warn("Filename " + filename + " does not match any regex in"
+                                                " the config file, moving it to"
+                                                " the project base directory")
+            return self.config['download_locations']['$^']  # Matches the
+            # project base
+            # directory
         elif len(matching_dirs) == 1:
             return matching_dirs[0]
         elif len(matching_dirs) > 1:

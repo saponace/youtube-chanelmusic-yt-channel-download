@@ -57,7 +57,8 @@ class Parser(object):
             base_location
         """
         head = dict(name=project_name,
-                    pattern=".",
+                    pattern="$^",  # Regex that matches nothing. Used to
+                                   # recognize the project base directory
                     children=subdirs_list)
         return Parser.parse_directories_aux(head, basedir)
 
